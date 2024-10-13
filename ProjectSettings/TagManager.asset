@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - SolidObjects
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 661566499
+    locked: 0
+  - name: Foreground
+    uniqueID: 1894716783
+    locked: 0
+  - name: Player
+    uniqueID: 2385179233
     locked: 0

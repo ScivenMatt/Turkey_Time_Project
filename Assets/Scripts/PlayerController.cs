@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public float moveSpeed;
 
-    public bool isMoving;
+    private bool isMoving;
 
     public Vector2 input;
 
@@ -24,7 +24,43 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-        public void HandleUpdate()
+    private void Update()  
+    {
+
+        if(!isMoving)
+        {
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
+
+            Debug.Log("This is input.x" + input.x);
+            Debug.Log("This is input.y" + input.y);
+
+            //if (input.x != 0) input.y = 0; //denies diagonal movement
+
+            if (input != Vector2.zero)
+            {
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
+
+                var targetPos = transform.position;
+                targetPos.x += input.x;
+                targetPos.y += input.y;
+
+                if (IsWalkable(targetPos))
+                {
+                    StartCoroutine(Move(targetPos));
+                }
+
+            }
+
+        }
+
+        animator.SetBool("isMoving", isMoving);
+
+        if (Input.GetKeyDown(KeyCode.Z))
+            Interact();
+    }
+    public void HandleUpdate()  // I think this is for later code? double check...
     {
 
         if(!isMoving)

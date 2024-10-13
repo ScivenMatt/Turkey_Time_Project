@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,12 +37,12 @@ public class DialogManager : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (Input.GetKeyUp(KeyCode.Z) && !isTyping)
+        if (Input.GetKeyDown(KeyCode.Z) && !isTyping)
         {
             ++currentLine;
             if (currentLine < dialog.Lines.Count) 
             {
-                startCoroutine(TypeDialog(dialog.Lines[currentLine]));
+                StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
             } else {
                 dialogBox.SetActive(false);
                 currentLine = 0;

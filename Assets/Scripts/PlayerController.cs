@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         if (collider != null)
         {
-            //Debug.Log("There is an NPC here!");
+            //Debug.Log("There is an NPC here!"); // the code doesn't reach here... could it be because the animator is not setting anything for moveY?
 
             collider.GetComponent<Interactable>()?.Interact();
         }

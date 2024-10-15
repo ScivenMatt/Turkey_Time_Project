@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.UIElements;
+using UnityEngine.Animations;
 
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float moveSpeed;
+
+    public GameObject appleprefab;
 
     private bool isMoving;
 
@@ -26,6 +29,16 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()  
     {
+        if (Input.GetKeyDown("mouse 0")) {
+            Debug.Log("Fire");
+            GameObject apple = Instantiate(appleprefab, transform.position, Quaternion.identity);
+            var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouseWorldPos.z = 0f; // zero z
+            Vector2 shootingDirection = new Vector2(mouseWorldPos.x - transform.position.x, mouseWorldPos.y - transform.position.y);
+            shootingDirection.Normalize();
+            apple.GetComponent<Rigidbody2D>().velocity = 5.0f*shootingDirection;
+            Destroy(apple, 3.0f);
+        }
 
         if(!isMoving)
         {

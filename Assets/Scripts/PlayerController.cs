@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
             mouseWorldPos.z = 0f; // zero z
             Vector2 shootingDirection = new Vector2(mouseWorldPos.x - transform.position.x, mouseWorldPos.y - transform.position.y);
             shootingDirection.Normalize();
-            apple.GetComponent<Rigidbody2D>().velocity = 5.0f*shootingDirection;
+            apple.GetComponent<ProjectileApple>().velocity = 5.0f*shootingDirection;
             Destroy(apple, 3.0f);
         }
 

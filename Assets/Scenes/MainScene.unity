@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  appleprefab: {fileID: 2453364660775231474, guid: 3db847d242d22d54cae6a965772a7762, type: 3}
   input: {x: 0, y: 0}
   solidObjectsLayer:
     serializedVersion: 2
@@ -32030,7 +32031,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4e6e3d11be42e224b8f03937def4536d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
